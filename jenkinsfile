@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-    options {
-    buildDiscarder(logRotator(numToKeepStr: '1'))
-    authorizationMatrix('xterm')
-    }
+   options {
+       buildDiscarder(logRotator(numToKeepStr: '1'))
+       ansiColor('xterm')
+   }
 
     parameters {
             string(name: 'APP_URL', defaultValue: '', description: 'APP URL')
