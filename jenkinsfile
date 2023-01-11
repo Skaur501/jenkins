@@ -24,6 +24,7 @@ pipeline {
           echo 'Hello World'
           echo "${XYZ}"
           echo "${ssh}"
+          echo "${APP_URL}"
        }
     }
   }
