@@ -11,7 +11,7 @@ pipeline {
       pollSCM('* * * *') // all star means it job will trigger every min automatically
    }
 
-    parameters {
+   parameters {
         string(name: 'APP_URL', defaultValue: '', description: 'APP URL')
     }
 
