@@ -6,6 +6,10 @@ pipeline {
     ansiColor('xterm')
     }
 
+    parameters {
+            string(name: 'APP_URL', defaultValue: '', description: 'APP URL')
+        }
+
   environment {
   ABC="abc"
   SSH = credentials("SSH")
