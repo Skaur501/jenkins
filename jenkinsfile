@@ -1,24 +1,24 @@
 pipeline {
-    agent any
+  agent any
 
-   options {
-       buildDiscarder(logRotator(numToKeepStr: '1'))
-       ansiColor('xterm')
-   }
+  options {
+     buildDiscarder(logRotator(numToKeepStr: '1'))
+     ansiColor('xterm')
+  }
 
-   triggers {
+  triggers {
       //cron('0 * * * *') this means its going to run very hour
-      pollSCM('* * * *') // all star means it job will trigger every min automatically
-   }
+    pollSCM('* * * *') // all star means it job will trigger every min automatically
+  }
 
-   parameters {
-        string(name: 'APP_URL', defaultValue: '', description: 'APP URL')
-    }
+  parameters {
+    string(name: 'APP_URL', defaultValue: '', description: 'APP URL')
+  }
 
   environment {
     ABC="abc"
     SSH = credentials("SSH")
-}
+  }
 
   stages {
     stage('New') {
