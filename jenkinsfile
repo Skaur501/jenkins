@@ -7,7 +7,6 @@ pipeline {
   }
 
   triggers {
-      //cron('0 * * * *') this means its going to run very hour
     pollSCM('* * * *') // all star means it job will trigger every min automatically
   }
 
