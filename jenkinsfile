@@ -6,9 +6,14 @@ pipeline {
        ansiColor('xterm')
    }
 
+   triggers {
+      //cron('0 * * * *') this means its going to run very hour
+      pollSCM('* * * *') // all star means it job will trigger every min automatically
+   }
+
     parameters {
-            string(name: 'APP_URL', defaultValue: '', description: 'APP URL')
-        }
+        string(name: 'APP_URL', defaultValue: '', description: 'APP URL')
+    }
 
   environment {
   ABC="abc"
