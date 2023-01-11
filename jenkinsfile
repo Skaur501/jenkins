@@ -4,12 +4,13 @@ pipeline {
   environment {
   ABC="abc"
   SSH = credentials("SSH")
- }
+}
 
   stages {
     stage('New') {
-        environment {
+      environment {
         XYZ="xyz"
+      }
        steps {
           echo 'Hello World'
           echo "${XYZ}"
