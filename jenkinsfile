@@ -31,15 +31,16 @@ pipeline {
          ok "Yes, we should."
            submitter "admin"
          }
-       steps {
-          echo "Hello,nice to meet you."
-       }
 
        steps {
-          echo 'Hello World'
-          echo "${XYZ}"
-          echo "${ssh}"
-          echo "${APP_URL}"
+          echo "Hello,nice to meet you."
+     }
+
+     steps {
+        echo 'Hello World'
+        echo "${XYZ}"
+        echo "${ssh}"
+        echo "${APP_URL}"
        }
     }
   }
@@ -50,8 +51,4 @@ pipeline {
      }
    }
  }
-
-
-
-
 
