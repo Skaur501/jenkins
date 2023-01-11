@@ -23,6 +23,7 @@ pipeline {
     stage('New') {
       environment {
         XYZ="xyz"
+    }
   }
 
 // here we are evaluating the stage when condition of the stage
