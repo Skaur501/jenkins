@@ -16,8 +16,8 @@ pipeline {
     }
 
   environment {
-  ABC="abc"
-  SSH = credentials("SSH")
+    ABC="abc"
+    SSH = credentials("SSH")
 }
 
   stages {
