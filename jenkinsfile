@@ -24,6 +24,18 @@ pipeline {
       environment {
         XYZ="xyz"
       }
+// here we are evaluating the stage when condition of the stage
+  stage('Example') {
+     input {
+       message "Should we continue?"
+         ok "Yes, we should."
+           submitter "admin"
+
+       }
+       steps {
+          echo "Hello,nice to meet you."
+       }
+
        steps {
           echo 'Hello World'
           echo "${XYZ}"
