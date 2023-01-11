@@ -1,15 +1,23 @@
 pipeline {
     agent any
 
-    stages {
-        stage('New') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-    }
+  environment {
+  ABC="abc"
+  SSH = credentials("SSH")
+ }
 
- post {
+  stages {
+    stage('New') {
+        environment {
+        XYZ="xyz"
+       steps {
+          echo 'Hello World'
+          echo "${XYZ}"
+       }
+    }
+  }
+
+  post {
     always {
        echo 'ok'
      }
