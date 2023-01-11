@@ -7,7 +7,7 @@ pipeline {
   }
 
   triggers {
-    pollSCM('* * * *') // all star means it job will trigger every min automatically
+    pollSCM('H 09-12/3 * * *') // all star means it job will trigger every min automatically
   }
 
   parameters {
