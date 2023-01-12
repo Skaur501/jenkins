@@ -1,53 +1,67 @@
 pipeline {
-  agent any
+ agent any
 
-  options {
-     buildDiscarder(logRotator(numToKeepStr: '1'))
-     ansiColor('xterm')
-  }
+ tools {
+   maven 'maven'
+ }
 
-  triggers {
-    pollSCM('* * * * *') // all star means it job will trigger every min automatically
-  }
+ options {
+   buildDiscarder(logRotator(numToKeepStr: '1'))
+   ansiColor('xterm')
+ }
 
-  parameters {
-    string(name: 'APP_URL', defaultValue: '', description: 'APP URL')
-  }
+ triggers {
+   //cron('0 * * * *')
+   pollSCM('* * * * *')
+ }
 
-  environment {
-    ABC="abc"
-    SSH = credentials("SSH")
-  }
+ parameters {
+   string(name: 'APP_URL', defaultValue: '', description: 'App URL')
+ }
 
-  stages {
-    stage('New') {
-      environment {
-        XYZ="xyz"
-  }
-      steps {
-        echo 'Hello World'
-        echo "${XYZ}"
-        echo "${ssh}"
-        echo "${APP_URL}"
-        echo "Hello,nice to meet you."
+ environment {
+   ABC="abc"
+   SSH = credentials("SSH")
+ }
+
+ stages {
+   stage('New') {
+     when {
+       expression {
+         params.APP_URL == "google.com"
        }
 
-    stage('Example') {
-
-       input {
-         message "Should we continue?"
-         ok "Yes, we should."
-         submitter "admin"
-       }
-       steps {
-          echo "Hello, nice to meet you."
-       }
-    }
-  }
-
-  post {
-    always {
-       echo 'ok'
+     }
+     environment {
+       XYZ="xyz"
+     }
+     steps {
+       echo 'Hello World'
+       echo "${XYZ}"
+       echo "${SSH}"
+       echo "${APP_URL}"
+       //sh 'mvn compile'
      }
    }
+
+   stage('Example') {
+
+     input {
+       message "Should we continue?"
+       ok "Yes, we should."
+       submitter "admin"
+
+     }
+     steps {
+       echo "Hello, nice to meet you."
+     }
+   }
+
  }
+
+ post {
+   always {
+     echo 'OK'
+   }
+ }
+}
