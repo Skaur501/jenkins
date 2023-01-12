@@ -77,18 +77,18 @@ pipeline {
           steps {
             echo "one"
           }
-       }
+        }
 
-      stage('two') {
-        steps {
-          echo "one"
+        stage('two') {
+          steps {
+            echo "one"
+          }
         }
       }
     }
 
-
-    stage('02'){
-      parallel{
+    stage('02') {
+      parallel {
         stage('three') {
           steps {
             echo "one"
