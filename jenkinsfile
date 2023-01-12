@@ -94,11 +94,12 @@ pipeline {
             echo "one"
           }
         }
-      }
 
-      stage('fourth') {
-        steps {
-          echo "one"
+
+        stage('fourth') {
+          steps {
+            echo "one"
+          }
         }
       }
     }
