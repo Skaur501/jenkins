@@ -81,7 +81,7 @@ pipeline {
 
         stage('two') {
           steps {
-            echo "one"
+            echo "two"
           }
         }
       }
@@ -91,14 +91,14 @@ pipeline {
       parallel {
         stage('three') {
           steps {
-            echo "one"
+            echo "three"
           }
         }
 
 
         stage('fourth') {
           steps {
-            echo "one"
+            echo "fourth"
           }
         }
       }
