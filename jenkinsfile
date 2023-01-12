@@ -87,18 +87,19 @@ pipeline {
     }
 
 
-   stage('02'){
+    stage('02'){
       parallel{
         stage('three') {
           steps {
             echo "one"
           }
-       }
+        }
+      }
 
       stage('fourth') {
         steps {
           echo "one"
          }
        }
-   }
+    }
   }
